@@ -1,0 +1,15 @@
+{
+
+    "web": {
+        "port": "3000"
+    },
+
+    "pterodactyl": {
+        "domain": "",
+        "key": ""
+    },
+
+    "purge": {
+        "keyword": "[Active]"
+    }
+}

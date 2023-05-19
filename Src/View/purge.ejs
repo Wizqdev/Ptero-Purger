@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Purge API</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #202124;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #2a2d31;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .btn-purge {
+      background-color: #f44336;
+      border-color: #f44336;
+    }
+
+    .btn-purge:hover {
+      background-color: #e53935;
+      border-color: #e53935;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #ffffff;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Purge</h1>
+    <form method="POST">
+      <label for="input-6">&nbsp;Keyword: Edit Keyword In Settings</label><br>
+      <label for="input-6">&nbsp;Your Current Keyword Is: <b><%= settings.purge.keyword %></b></label><br>
+      <button class="btn btn-purge" onclick="if (confirm('Are You Sure That You Want To Purge Inactive Servers?')) { purge() }">Purge Inactive Servers</button>
+    </form>
+    <footer class="footer">
+      &copy; 2023 Ptero-Purger. All Rights Reserved. By Prajwal
+    </footer>
+  </div>
+
+
+
+  <script>
+    function purge() {
+        $.ajax({
+          url: '/api/purge',
+          method: 'POST',
+          success: function() {
+            alert('Purge Has Started');
+          },
+          error: function() {
+            alert('Failed To Purge Inactive Servers.');
+          }
+        });
+      }
+    </script>
+
+
+</body>
+</html>
