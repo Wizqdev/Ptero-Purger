@@ -3,45 +3,28 @@
 <head>
   <title>Purge</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #202124;
-      color: #ffffff;
-    }
+  <link rel="stylesheet" href="../Assets/Css/main.css">
 
-    .container {
-      max-width: 500px;
-      margin: 100px auto;
-      padding: 20px;
-      background-color: #2a2d31;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .btn-purge {
-      background-color: #f44336;
-      border-color: #f44336;
-    }
-
-    .btn-purge:hover {
-      background-color: #e53935;
-      border-color: #e53935;
-    }
-
-    .footer {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid #ffffff;
-      font-size: 14px;
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
+
+  <div class="container">
+    <h1>Host Info!</h1>
+    <div class="col-12 col-lg-6 col-xl-3 border-light">
+      <div class="card-body">
+        <h5 class="text-white mb-0"><span id="users">---</span><span class="float-right"><i class="bi bi-people"></i></span></h5>
+        <p class="mb-0 text-white small-font">Users Registered</p>
+      </div>
+  </div>
+  <div class="col-12 col-lg-6 col-xl-3 border-light">
+    <div class="card-body">
+      <h5 class="text-white mb-0"><span id="servers">---</span><span class="float-right"><i class="bi bi-hdd-network"></i></span></h5>
+      <p class="mb-0 text-white small-font">Servers Active</p>
+    </div>
+</div>
+  </div>
+
+
   <div class="container">
     <h1>Purge</h1>
     <form method="POST">
@@ -70,7 +53,24 @@
         });
       }
     </script>
-
+        <script>
+          async function servers() {
+            const serverInfo = document.getElementById("servers");
+            const response = await fetch('/api/servers');
+            const json = await response.json();
+            const infoString = `${json.totalServers}`;
+            serverInfo.innerText = infoString;
+          }
+          servers();
+          async function users() {
+            const users = document.getElementById("users");
+            const response = await fetch('/api/users');
+            const json = await response.json();
+            const usersr = `${json.totalUsers}`;
+            users.innerText = usersr;
+          }
+          users();
+          </script>
 
 </body>
 </html>
