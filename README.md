@@ -6,7 +6,7 @@ Example: The Servers Withoug Word **[Active]** Will Be Deleted And The Servers W
 
 
 # Preview Of Page
-![purge]([https://cdn.discordapp.com/attachments/941008378799489044/1109033977790079017/image.png](https://cdn.discordapp.com/attachments/941008378799489044/1109046946284441610/image.png))
+![purge](https://cdn.discordapp.com/attachments/941008378799489044/1109046946284441610/image.png)
 
 
 # Installtion 
